@@ -1,0 +1,620 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: sans-serif;
+    background-color: rgb(216, 239, 255);
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+.html {
+    scroll-behavior: smooth;
+}
+/* ส่วนหัว */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    padding: 10px;
+    background-color: white;
+}
+.middle-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 600px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 25px;
+    padding: 8px 12px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    width: 50px;
+    height: 50px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+}
+.icon a {
+    text-decoration: none;
+    color: black;
+}
+.icon div {
+    margin-left: 6px;
+    white-space: wrap;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+.icon i {
+    font-size: 20px;
+    line-height: 40px;
+}
+
+.icon:hover {
+    width: 150px;
+    background-color: rgb(88, 88, 253);
+    color: white;
+}
+.icon:hover a {
+    color: white;
+    font-weight: bold;
+}
+.icon:hover div {
+    opacity: 1;
+}
+
+
+.right-section {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+.right-section button {
+    padding: 10px 20px;
+    border: 2px solid blue;
+    border-radius: 10px;
+    font-size: 18px;
+    color: black;
+    transition: all 0.7s;
+    font-weight: bold;
+    cursor: pointer;
+}
+.right-section button:hover {
+    opacity: 0.7;
+    background-color: blue;
+    color: white;
+    padding: 10px 25px;
+}
+.right-section i {
+    display: none;
+    font-size: 1.5rem;
+    margin-right: 20px;
+    cursor: pointer;
+}
+.name-website {
+    margin-left: 10px;
+    font-size: 2rem;
+}
+.name-website a {
+    text-decoration: none;
+    color: black;
+}
+.name-website span {
+    color: blue;
+    font-style: italic;
+    font-weight: bold;
+}
+.name-website p {
+    font-style: italic;
+}
+@media(max-width:780px) {
+    .middle-section {
+        display: none;
+    }
+    .right-section i {
+        display: block;
+    }
+}
+
+/* บารซ่อน */
+
+/* จัดรูปแบบปุ่มปิด */
+.close-btn {
+    position: absolute; /* กำหนดตำแหน่งสัมพัทธ์กับ .sidebar-menu */
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    color: #333; /* สีของไอคอน X */
+    font-size: 1.5rem; /* ขนาดของไอคอน */
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1000;
+}
+.name {
+    position: absolute;
+    left: 15px;
+    top: 10px;
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: black;
+    font-style: italic;
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    transition: all 0.6s ease;
+}
+.name span {
+    color: blue;
+    font-weight: bold;
+}
+.name:hover {
+    background-color: rgb(0, 183, 255);
+    color: white;
+}
+
+.close-btn:hover {
+    color: #0011ff; /* เปลี่ยนสีเมื่อเมาส์ชี้ */
+}
+
+.sidebar-menu {
+    position: fixed; /* ให้อยู่คงที่แม้เลื่อนหน้าจอ */
+    top: 0;
+    right: 0;
+    height: 100%; /* ความสูงเต็มจอ */
+    width: 300px; /* ความกว้างของบาร์ที่คุณต้องการ */
+    background-color: #f1f1f1; /* สีพื้นหลังของบาร์ */
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+    z-index: 999; /* ให้อยู่ทับองค์ประกอบอื่นๆ */
+    
+    /* ซ่อนเมนูไว้ก่อน: เลื่อนไปทางขวาด้วยความกว้างของตัวเอง */
+    transform: translateX(300px); 
+    transition: transform 0.3s ease-in-out; /* เพิ่ม Animation เวลาเลื่อนเข้า/ออก */
+}
+
+/* สถานะที่เมนูถูกเปิด: เลื่อนกลับเข้ามาที่ตำแหน่ง 0 */
+.sidebar-menu.open {
+    transform: translateX(0);
+}
+
+/* จัดรูปแบบรายการเมนู */
+.sidebar-list {
+    list-style: none;
+    padding: 70px 0 0 0; /* เว้นด้านบนสำหรับเผื่อหัวเมนู */
+    margin: 0;
+}
+
+.sidebar-list li a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 20px;
+    text-decoration: none;
+    color: #333;
+    font-size: 1.2rem;
+    border-bottom: 1px solid #ddd;
+}
+.sidebar-list li a .house-icon {
+    display: inline-block;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.sidebar-list li a:hover .house-icon {
+    opacity: 1;
+}
+.sidebar-list li a:hover {
+    background-color: #e0e0e0;
+}
+
+/* ส่วนรูปหน้าเว็บ */
+.hero {
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7),
+    rgba(0, 0, 0, 0.6)),url(https://www.denverpost.com/wp-content/uploads/2017/09/ap17251674546452.jpg?w=1280);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+.content h1 {
+    font-size: 3rem;
+    max-width: 900px;
+}
+.content span {
+    color: rgb(74, 74, 242);
+}
+.content p {
+    font-size: 1.5rem;
+}
+.content a {
+    text-decoration: none;
+    color: white;
+    border: 2px solid orange;
+    padding: 15px 30px;
+    border-radius: 20px;
+    transition: all 0.6s;
+    font-weight: 800;
+}
+.read-more-btn {
+    margin-top: 40px;
+}
+
+.content a:hover {
+    background-color: orange;
+    padding: 15px 40px;
+}
+
+/* หัวข้อน้ำท่วม */
+.point-container {
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+    margin-bottom: 100px;
+    margin-top: 30px;
+}
+.point p {
+    font-size: 1.8rem;
+    color: white;
+    background-color: rgb(70, 70, 255);
+    padding: 20px;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.point {
+    overflow: hidden;
+    width: 600px;
+    border-radius: 20px;
+}
+.head {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    margin-left: 15px;
+    padding: 10px 20px;
+    line-height: 40px;
+    font-size: 22px;
+    font-weight: 700;
+}
+.head div {
+    display: flex;
+}
+.head a {
+    text-decoration: none;
+    color: black;
+}
+.head a:hover {
+    text-decoration: underline;
+    color: blue;
+}
+.head i {
+    margin-left: 20px;
+}
+
+.spongbob img {
+    height: 200px;
+}
+.head-pic {
+    display: flex;
+    background-color: white;
+    align-items: center;
+}
+/* ข้อมูลพื้นฐานน้ำท่วม */
+.flood-info {
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+    color: rgb(50, 135, 255);
+}
+/* น้ำท่วมคืออะไร */
+.what-is-flood-container {
+    display: flex;
+    justify-content: center;
+    padding: 0 30px;
+}
+.what-is-flood {
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    padding: 20px 5px;
+}
+#what-flood h1 {
+    text-align: center;
+    padding: 20px;
+}
+#what-flood span {
+    color: red;
+}
+.pic-content img {
+    height: 300px;
+    width: 450px;
+    margin-left: 20px;
+    margin-right: 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+.pic-content p {
+    font-size: 18px;
+    line-height: 30px;
+    padding: 0 30px;
+}.picture {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+/* สาเหตุของน้ำท่วม */
+.reason {
+    display: flex;
+    justify-content: center;
+    color: rgb(74, 29, 255);
+}
+.by-nature h2 {
+    margin-left: 20px;
+    color: rgb(0, 71, 0);
+}
+.content-container {
+    padding: 0 30px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.contents {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2),
+    rgba(0, 0, 0, 0.5)),url(https://img.etimg.com/photo/msid-68721421,quality-100/nature.jpg);
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+    padding: 20px;
+}
+.contents1 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2),
+    rgba(0, 0, 0, 0.5)),url(https://www.worldatlas.com/r/w1200-q80/upload/39/fa/85/shutterstock-2113876820.jpg);
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+    padding: 20px;
+}
+.contents p {
+    color: rgb(237, 237, 237);
+    font-size: 18px;
+    line-height: 30px;
+}
+.contents1 p {
+    color: rgb(237, 237, 237);
+    font-size: 18px;
+    line-height: 30px;
+}
+.by-human {
+    margin-left: 20px;
+    color: rgba(255, 208, 0, 0.764);
+}
+/* ผลกระทบ การด์ */
+.card-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-left: 20px;
+}
+.card {
+    width: 350px;
+    height: 500px;
+    background-color: aliceblue;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    border-radius: 10px;
+}
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+.card-content h3 {
+    margin: 0;
+}
+.card-content {
+    padding: 25px;
+    color: black;
+}
+.card a {
+    text-decoration: none;
+    color: white;
+    background-color: lab(53.23% 80.11 67.22);
+    padding: 10px 18px;
+    border-radius: 10px;
+    margin-left: 18px;
+}
+.effect {
+    display: flex;
+    justify-content: center;
+}
+.effect h1 {
+    color:rgb(74, 29, 255);
+}
+/* ประเภทของน้ำท่วม */
+#types h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(74, 29, 255);
+}
+.type-content-container {
+    display: flex;
+    padding: 30px;
+}
+.type-content {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3),
+    rgba(0, 0, 0, 0.9)),url(https://vstatic.vietnam.vn/vietnam/resource/IMAGE/2025/10/16/1760610732711_2_20251016145107.jpeg);
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    border-radius: 25px;
+}
+.type-content h2 {
+    color: yellow;
+    font-weight: bold;
+}
+.type-content p {
+    color: white;
+    font-size: 18px;
+    line-height: 30px;
+}
+
+#Watch-out {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+#Watch-out img {
+    width: 730px;
+    height: 1032px;
+}
+#Watch-out h1 {
+    color: rgb(74, 29, 255);
+}
+.how-to-handle {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+}
+.how-to-handle div {
+    font-size: 19px;
+}
+.how-to-handle-container {
+    padding: 30px;
+}
+
+/* ปุ่มไปหน้าเช็ก */
+.goto-checkpage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 0;
+}
+.goto-checkpage button {
+    padding: 20px 40px;
+    border: none;
+    border-radius: 20px;
+    background-color: rgb(151, 252, 0);
+    font-size: 19px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+}
+.goto-checkpage button:active {
+    margin-top: 5px;
+    margin-left: 5px;
+    box-shadow: none;
+}
+.goto-checkpage button:hover {
+    opacity: 0.8;
+}
+.goto-checkpage a:hover {
+    text-decoration: underline;
+}
+.goto-checkpage a {
+    text-decoration: none;
+    color: white;
+}
+@media(max-width:550px) {
+    .Watch-out img {
+        width: 400px;
+        height: 1032px;
+    }
+}
+
+.footer-container {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    justify-content: space-between;
+    background-color: #272727;
+    margin-top: 200px;
+}
+.links-footer {
+    width: 200px;
+    display: flex;
+    justify-content: center;
+}
+.floodcheck-logo {
+    color: white;
+}
+.floodcheck-logo h1 {
+    color: white;
+    font-size: 50px;
+    font-style: italic
+}
+.All-check {
+    font-size: 15px;
+    margin-top: 30px;
+}
+.floodcheck-logo span {
+    color: blue;
+}
+.links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+}
+.links li {
+    padding: 10px;
+}
+.links a {
+    text-decoration: none;
+    color: white;
+}
+.links a:hover {
+    color: #606060;
+}
+.contact-container {
+    font-size: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.contact-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.contact-container p {
+    text-align: center;
+    color: white;
+    margin-bottom: 10px;
+}
+.contact-logo {
+    color: white;
+    font-size: 40px;
+}
+.contact-logo .Facebook-logo:hover {
+    color: blue;
+}
+.contact-logo .instagram-logo:hover {
+    color: orangered;
+}
+.contact-logo .line-logo:hover {
+    color: greenyellow;
+}

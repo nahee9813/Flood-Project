@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+    <link rel="stylesheet" href="check.css">
+    <script src="check-page.js"></script>
+</head>
+<body>
+    <div class="header">
+        <div class="left-section">
+           <div class="name-website">
+                <a href="#"><p>Flood <span>Check</span></p></a>
+           </div>
+        </div>
+
+        <div class="middle-section">
+            <div class="icon">
+                <span><i class="fa-solid fa-house"></i></span>
+                <div><a href="index.html">หน้าหลัก</a></div>
+            </div>
+
+            <div class="icon">
+                <span><i class="fa-solid fa-book"></i></span>
+                <div><a href="">สถานการณ์น้ำท่วม</a></div>
+            </div>
+
+            <div class="icon">
+                <span><i class="fa-regular fa-paper-plane"></i></span>
+                <div><a href="">ข่าวน้ำท่วม</a></div>
+            </div>
+
+            <div class="icon">
+                <span><i class="fa-regular fa-pen-to-square"></i></span>
+                <div><a href="check-page.html">เช็กน้ำท่วมในพื้นที่</a></div>
+            </div>
+
+            <div class="icon">
+                <span><i class="fa-solid fa-phone"></i></span>
+                <div><a href="">ติดต่อเรา</a></div>
+            </div>
+        </div>
+
+        <div class="right-section">
+            <i class="fa-solid fa-bars"></i>
+            <div class="spongbob-container">
+                <img src="icon/spongbob.png" alt="spongbob">
+            </div>
+        </div>
+    </div>
+
+    <nav class="sidebar-menu">
+        <a class="name" href="#"><p>Flood <span>Check</span></p></a>
+        <button class="close-btn"> 
+        <i class="fa-solid fa-times"></i>
+    </button>
+    <ul class="sidebar-list">
+        <li>
+            <a href="index.html">หน้าหลัก  <i class="fa-solid fa-house house-icon"></i></a>
+        </li>
+        <li>
+            <a href="#flood-situation">สถานการณ์น้ำท่วม <i class="fa-solid fa-book house-icon"></i></a>
+        </li>
+        <li>
+            <a href="#flood-news">ข่าวน้ำท่วม <i class="fa-regular fa-paper-plane house-icon"></i></a>
+        </li>
+        <li>
+            <a href="check-page.html">เช็กพื้นที่น้ำท่วม <i class="fa-regular fa-pen-to-square house-icon"></i></a>
+        </li>
+        <li>
+            <a href="#contact-us">ติดต่อเรา <i class="fa-solid fa-phone house-icon"></i></a>
+        </li>
+    </ul>
+</nav>
+
+    <div class="wellcome">ยินดีต้อนรับเข้าการเช็กพื้นที่น้ำท่วมของคุณ</div>
+
+    <div class="container-allcheck">
+        <div class="container">
+        <div class="Checkhere-name">Check<span>Here</span></div>
+        <input list="provinces" placeholder="ค้นหาจังหวัด...">
+            <datalist id="provinces">
+                <option value="กรุงเทพมหานคร">
+  <option value="กระบี่">
+  <option value="กาญจนบุรี">
+  <option value="กาฬสินธุ์">
+  <option value="กำแพงเพชร">
+  <option value="ขอนแก่น">
+  <option value="จันทบุรี">
+  <option value="ฉะเชิงเทรา">
+  <option value="ชลบุรี">
+  <option value="ชัยนาท">
+  <option value="ชัยภูมิ">
+  <option value="ชุมพร">
+  <option value="เชียงราย">
+  <option value="เชียงใหม่">
+  <option value="ตรัง">
+  <option value="ตราด">
+  <option value="ตาก">
+  <option value="นครนายก">
+  <option value="นครปฐม">
+  <option value="นครพนม">
+  <option value="นครราชสีมา">
+  <option value="นครศรีธรรมราช">
+  <option value="นครสวรรค์">
+  <option value="นนทบุรี">
+  <option value="นราธิวาส">
+  <option value="น่าน">
+  <option value="บึงกาฬ">
+  <option value="บุรีรัมย์">
+  <option value="ปทุมธานี">
+  <option value="ประจวบคีรีขันธ์">
+  <option value="ปราจีนบุรี">
+  <option value="ปัตตานี">
+  <option value="พระนครศรีอยุธยา">
+  <option value="พังงา">
+  <option value="พัทลุง">
+  <option value="พิจิตร">
+  <option value="พิษณุโลก">
+  <option value="เพชรบุรี">
+  <option value="เพชรบูรณ์">
+  <option value="แพร่">
+  <option value="ภูเก็ต">
+  <option value="มหาสารคาม">
+  <option value="มุกดาหาร">
+  <option value="แม่ฮ่องสอน">
+  <option value="ยโสธร">
+  <option value="ยะลา">
+  <option value="ร้อยเอ็ด">
+  <option value="ระนอง">
+  <option value="ระยอง">
+  <option value="ราชบุรี">
+  <option value="ลพบุรี">
+  <option value="ลำปาง">
+  <option value="ลำพูน">
+  <option value="เลย">
+  <option value="ศรีสะเกษ">
+  <option value="สกลนคร">
+  <option value="สงขลา">
+  <option value="สตูล">
+  <option value="สมุทรปราการ">
+  <option value="สมุทรสงคราม">
+  <option value="สมุทรสาคร">
+  <option value="สระแก้ว">
+  <option value="สระบุรี">
+  <option value="สิงห์บุรี">
+  <option value="สุโขทัย">
+  <option value="สุพรรณบุรี">
+  <option value="สุราษฎร์ธานี">
+  <option value="สุรินทร์">
+  <option value="หนองคาย">
+  <option value="หนองบัวลำภู">
+  <option value="อ่างทอง">
+  <option value="อำนาจเจริญ">
+  <option value="อุดรธานี">
+  <option value="อุตรดิตถ์">
+  <option value="อุทัยธานี">
+  <option value="อุบลราชธานี">
+            </datalist>
+    </div>
+    </div>
+</body>
+</html>
