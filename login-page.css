@@ -8,59 +8,13 @@ body {
 }
 .container {
     display: flex;
+    justify-content: center;
+    align-items: center;
     height: 100vh;
 }
-.container .turnback {
-    margin-left: 10px;
-    margin-top: 10px;
-}
-.container .turnback button {
-    width: 110px;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 15px;
-    font-size: 16px;
-    font-weight: bold;
-    background-color: white;
-    transition: all 0.4s;
-    cursor: pointer;
-}
-.container .turnback button:hover {
-    background-color: blue;
-    color: white;
-}
-.container .wellcome-side {
-    background-color: rgb(255, 255, 255);
-    width: 50%;
-}
-.wellcome-side {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    height: 100vh;
-    background-color: white;
-}
-.content {
-    backdrop-filter: blur(15px);
-    padding: 50px 20px;
-    border-radius: 20px;
-    color: black;
-    line-height: 30px;
-    transition: background-color 0.4s ease-in;
-}
-.content:hover {
-    background-color: rgb(245, 245, 245);
-}
-.container .login-side {
-    background-color: rgb(0, 94, 255);
-    width: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-}
+
 .container-login {
+    margin: 10px;
     padding: 50px 40px;
     width: 450px;
     background-color: aliceblue;
