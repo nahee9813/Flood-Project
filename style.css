@@ -321,15 +321,28 @@ body {
     color: rgb(50, 135, 255);
 }
 /* น้ำท่วมคืออะไร */
-.what-is-flood-container {
+.what-is-flood-content {
+    background-color: white;
+    padding: 10px;
+    border-radius: 16px;
+    width: 100%;
+    height: auto;
+}
+.picture-container {
     display: flex;
     justify-content: center;
-    padding: 0 30px;
+    flex-wrap: wrap;
 }
-.what-is-flood {
-    background-color: rgb(255, 255, 255);
-    border-radius: 20px;
-    padding: 20px 5px;
+.picture-container img {
+    width: 400px;
+    height: 200px;
+    padding: 3px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+#what-flood {
+    width: 100%;
+    height: auto;
 }
 #what-flood h1 {
     text-align: center;
@@ -338,13 +351,11 @@ body {
 #what-flood span {
     color: red;
 }
+
 .pic-content img {
     height: 300px;
-    width: 450px;
-    margin-left: 20px;
-    margin-right: 10px;
+    padding: 10px;
     border-radius: 20px;
-    margin-bottom: 10px;
 }
 .pic-content p {
     font-size: 18px;
@@ -354,6 +365,7 @@ body {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    width: 100%;
 }
 /* สาเหตุของน้ำท่วม */
 .reason {
@@ -551,9 +563,9 @@ body {
     justify-content: space-between;
     background-color: #272727;
     margin-top: 200px;
+    width: 100%;
 }
 .links-footer {
-    width: 200px;
     display: flex;
     justify-content: center;
 }
