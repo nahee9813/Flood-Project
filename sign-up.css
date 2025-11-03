@@ -10,15 +10,21 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    background: url(https://securityonline.info/wp-content/uploads/2020/02/code.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 .container-inside {
     width: 100%;
 }
 .wrapper {
-    padding: 20px;
+    padding: 40px;
     width: 400px;
     height: auto;
-    background-color: gray;
+    backdrop-filter: blur(15px);
+    background-color: rgba(265, 265, 265 0.5);
+    border-radius: 30px;
 }
 .N-P-M-confirm {
     display: flex;
@@ -29,11 +35,14 @@ body {
     border-radius: 10px;
     outline: none;
     border: none;
-    margin: 5px 0px;
+    margin: 13px 0px;
+    background: transparent;
+    border: 3px solid white;
+    color: white;
 }
 .N-P-M-confirm label {
     font-size: 17px;
-    color: black;
+    color: white;
 }
 .head {
     text-align: center;
@@ -41,8 +50,54 @@ body {
     font-size: 25px;
     margin-bottom: 10px;
 }
-.container-inside button {
+.signUp-btn {
     display: flex;
     justify-content: center;
-    padding: 5px 60px;
+    align-items: center;
+    margin-top: 30px;
+}
+.signUp-btn button {
+    position: relative;
+    padding: 10px 100px;
+    border-radius: 20px;
+    border: none;
+    font-size: 19px;
+    background-color: rgb(255, 128, 0);
+    color: white;
+    overflow: hidden;
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+}
+
+.signUp-btn button:hover {
+    padding: 10px 120px;
+}
+.container-inside p {
+    text-align: center;
+    padding: 17px;
+    color: white;
+}
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    font-size: 35px;
+}
+.logo .facebook {
+    color: rgb(124, 124, 255);
+}
+.logo .google {
+    color: black;
+}
+.Facebook-logo,
+.Google-logo {
+    line-height: 50px;
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    text-align: center;
+    border-radius: 50%;
+    margin: 10px;
+    cursor: pointer;
 }
