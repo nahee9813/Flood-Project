@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    height:  100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container-inside {
+    width: 100%;
+}
+.wrapper {
+    padding: 20px;
+    width: 400px;
+    height: auto;
+    background-color: gray;
+}
+.N-P-M-confirm {
+    display: flex;
+    flex-direction: column;
+}
+.N-P-M-confirm input {
+    padding: 10px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    margin: 5px 0px;
+}
+.N-P-M-confirm label {
+    font-size: 17px;
+    color: black;
+}
+.head {
+    text-align: center;
+    color: white;
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+.container-inside button {
+    display: flex;
+    justify-content: center;
+    padding: 5px 60px;
+}
